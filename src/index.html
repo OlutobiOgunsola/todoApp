@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script> -->
+    <!-- <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> -->
+    <script src="./react.js"></script>
+    <script src="./react-dom.js"></script>
+    <!-- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> -->
+    <script src="./babel.min.js"></script>
+    <title>learnReact</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+    class App extends React.Component {
+        state = {
+            name: 'Ryan Chu',
+            age: 25,
+        }
+        handleClicks = (e) => {
+            //    document.getElementById("color").innerHTML = "i HAVE BEEN CLICKED!";
+            console.log(this.state);
+        }
+        mouseover(e){
+               document.getElementById("over").innerHTML = "i HAVE BEEN HOVERED!";
+        }
+        handleCopy(e){
+               console.log('XHSOIEJ");')
+        }
+        handleChange = (e) => {
+            this.setState({
+                name: e.target.value
+            });
+        }
+
+        render() {
+            return (
+                <div className="App-content">
+                <h1>Hey Ninjas</h1>
+                <form>
+                <input type="text" onChange={ this.handleChange }></input>
+                <button type="submit"></button>
+                </form>
+                <p>My name is { this.state.name }, and I am {this.state.age} </p>
+                <button onClick={ this.handleClicks }>Click this shii</button>
+                <div><p id="color"></p></div>
+                <button onMouseOver={ this.mouseover }>Hover this shii</button>
+                <div><p id="over"></p></div>
+                <p onCopy={ this.handleCopy }>What we think, we foo</p>
+                </div>
+            )       
+        }
+    }
+
+        ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+</body>
+</html>
